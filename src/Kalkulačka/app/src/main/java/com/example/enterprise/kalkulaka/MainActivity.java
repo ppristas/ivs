@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(finalString);
         editText.setText("");
 
-
     }
 
     public void ButtonOnClick(View v) {
