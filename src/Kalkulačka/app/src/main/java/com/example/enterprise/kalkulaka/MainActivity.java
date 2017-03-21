@@ -8,46 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
-
-    public Button Plus;
-    public Button Minus;
-    public Button Divide;
-    public Button Multiple;
-    public Button Equals;
-    public Button Percentage;
-
-    public Button Mocnina;
-    public Button Odmocnina;
-    public Button Sustava;
-    public Button Factorial;
-
-    public Double First; // uchovanie prvej hodnoty zadanej tlacitkom
-    public Double Last; // uchovanie druhej hodnoty / vysledku
+public class MainActivity extends AppCompatActivity
+{
 
     public TextView textView;
     public EditText editText;
-
-    public StringBuilder stringBuilder = new StringBuilder();
-    public StringBuilder deleteStringBuilder = new StringBuilder();
     public String finalString;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_layout);
-
-        /*Button Zero = (Button) findViewById(R.id.number0);
-        Button One = (Button) findViewById(R.id.number1);
-        Button Two = (Button) findViewById(R.id.number2);
-        Button Three = (Button) findViewById(R.id.number3);
-        Button Four = (Button) findViewById(R.id.number4);
-        Button Five = (Button) findViewById(R.id.number5);
-        Button Six = (Button) findViewById(R.id.number6);
-        Button Seven = (Button) findViewById(R.id.number7);
-        Button Eight = (Button) findViewById(R.id.number8);
-        Button Nine = (Button) findViewById(R.id.number9);*/
-
+        finalString = "";
     }
 
     public void setEditAndTextView(String typeChar)
@@ -56,16 +29,7 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
         editText.setText(typeChar);
 
-        if (typeChar.equals("+") || typeChar.equals("-") || typeChar.equals("*") || typeChar.equals("/") || typeChar.equals("="))
-        {
-            stringBuilder.append(" ");
-            stringBuilder.append(typeChar);
-            stringBuilder.append(" ");
-        }
-        else
-            stringBuilder.append(typeChar);
-
-        finalString = stringBuilder.toString();
+        finalString = finalString + typeChar;
         textView.setText(finalString);
     }
 
@@ -74,22 +38,21 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
 
-        String lastChar = finalString.substring(finalString.length()-1);
-
-        finalString = finalString.substring(0,finalString.length()-1);
-        stringBuilder = stringBuilder.deleteCharAt(finalString.length());
-
-        if ( lastChar.equals(" "))
+        if ( finalString.length() != 0 )
         {
             finalString = finalString.substring(0,finalString.length()-1);
-            stringBuilder = stringBuilder.deleteCharAt(finalString.length());
-            finalString = finalString.substring(0,finalString.length()-1);
-            stringBuilder = stringBuilder.deleteCharAt(finalString.length());
+            textView.setText(finalString);
+            editText.setText("");
         }
 
-        textView.setText(finalString);
-        editText.setText("");
+    }
 
+    public String leftOrRightBracket()
+    {
+        String bracket = "";
+
+
+        return bracket;
     }
 
     public void ButtonOnClick(View v) {
@@ -127,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.buttonPoint:
                 setEditAndTextView(",");break;
             case R.id.buttonPercentage:
-                setEditAndTextView("%");break;
+                String bracket = leftOrRightBracket();
+                setEditAndTextView(bracket);break;
             case R.id.buttonOdmocnina:
                 setEditAndTextView("√");break;
             case R.id.buttonMocnina:
