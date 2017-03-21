@@ -51,8 +51,55 @@ public class MainActivity extends AppCompatActivity
     {
         String bracket = "";
 
+        if ( finalString.equals(""))
+        {
+            bracket = "(";
+        }
+        else if ( !finalString.equals(""))
+        {
+            StringBuilder sb = new StringBuilder(finalString);
+            String sub;
+            if ( sb.length() == 1)
+            {
+                sub = sb.substring(0, sb.length());
+
+                if ( isCharacterOperator(sub))
+                {
+                    bracket = "(";
+                }
+                else
+                {
+                    bracket = ")";
+                }
+            }
+            else
+            {
+                sub = sb.substring(sb.length() - 1, sb.length());
+
+                if ( isCharacterOperator(sub))
+                {
+                    bracket = "(";
+                }
+                else
+                {
+                    bracket = ")";
+                }
+            }
+        }
 
         return bracket;
+    }
+
+    public Boolean isCharacterOperator(String isOper)
+    {
+
+        if ( isOper.equals("+") || isOper.equals("-") || isOper.equals("*") ||isOper.equals("/") ||isOper.equals("√") ||isOper.equals("^") ||isOper.equals("("))
+        {
+            return true;
+        }
+        else
+            return false;
+
     }
 
     public void ButtonOnClick(View v) {
