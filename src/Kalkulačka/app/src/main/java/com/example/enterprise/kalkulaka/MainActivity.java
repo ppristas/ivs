@@ -177,9 +177,11 @@ public class MainActivity extends AppCompatActivity
                 }
                 catch ( Exception e)
                 {
-
+                    btn.setText("Bin");
                 }
             }
+            else
+                btn.setText("Bin");
         }
         else if ( btnText.equals("Bin"))
         {
@@ -196,9 +198,13 @@ public class MainActivity extends AppCompatActivity
                 }
                 catch ( Exception e)
                 {
+                    btn.setText("Hex");
 
                 }
             }
+            else
+                btn.setText("Hex");
+
         }
         else
         {
@@ -217,9 +223,12 @@ public class MainActivity extends AppCompatActivity
                 }
                 catch ( Exception e)
                 {
+                    btn.setText("Dec");
 
                 }
             }
+            else
+                btn.setText("Dec");
         }
     }
 
