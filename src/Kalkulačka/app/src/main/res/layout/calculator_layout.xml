@@ -19,7 +19,7 @@
         android:id="@+id/textView"
         android:textAlignment="textStart" />
 
-    <EditText
+    <TextView
         android:gravity="center"
         android:textSize="30dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -83,7 +83,7 @@
             android:background="@color/classicButtons"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/buttonNumberSystem"
+            android:id="@+id/buttonGenerator"
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"

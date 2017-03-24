@@ -8,12 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity
 {
 
     public TextView textView;
-    public EditText editText;
+    public TextView editText;
     public String finalString;
+    public String editTextIfNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -21,14 +24,15 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_layout);
         finalString = "";
+        editTextIfNumber = "";
     }
 
     public void setEditAndTextView(String typeChar)
     {
         textView = (TextView) findViewById(R.id.textView);
-        editText = (EditText) findViewById(R.id.editText);
-        editText.setText(typeChar);
+        editText = (TextView) findViewById(R.id.editText);
 
+        editText.setText(setEditText(typeChar));
         finalString = finalString + typeChar;
         textView.setText(finalString);
     }
@@ -36,15 +40,51 @@ public class MainActivity extends AppCompatActivity
     public void deleteLastChar()
     {
         textView = (TextView) findViewById(R.id.textView);
-        editText = (EditText) findViewById(R.id.editText);
+        editText = (TextView) findViewById(R.id.editText);
 
         if ( finalString.length() != 0 )
         {
             finalString = finalString.substring(0,finalString.length()-1);
             textView.setText(finalString);
-            editText.setText("");
         }
 
+        if ( editTextIfNumber.length() != 0)
+        {
+            editTextIfNumber = editTextIfNumber.substring(0,editTextIfNumber.length()-1);
+            editText.setText(editTextIfNumber);
+        }
+        else
+        {
+            editText.setText("");
+        }
+    }
+
+    public String setEditText(String character)
+    {
+        String returnString;
+        //cislo alebo desatinna ciarka
+        if( isCharacterNumber(character))
+        {
+            if ( editTextIfNumber.equals(""))
+            {
+                editTextIfNumber = character;
+                returnString = character;
+            }
+            else
+            {
+                editTextIfNumber = editTextIfNumber + character;
+                returnString = editTextIfNumber;
+            }
+        }
+        //operator
+        else
+        {
+            returnString = character;
+            editTextIfNumber = "";
+        }
+
+
+        return returnString;
     }
 
     public String leftOrRightBracket()
@@ -102,6 +142,116 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public Boolean isCharacterNumber(String isOper)
+    {
+
+        if ( isOper.equals("0") || isOper.equals("1") || isOper.equals("2") ||isOper.equals("3") ||isOper.equals("4") ||isOper.equals("5") ||isOper.equals("6")
+                || isOper.equals("7") || isOper.equals("8") ||isOper.equals("9") ||isOper.equals(",") )
+        {
+            return true;
+        }
+        else
+            return false;
+
+    }
+
+    public void decBinHex()
+    {
+        Button btn = (Button) findViewById(R.id.buttonSustava);
+        String btnText = btn.getText().toString();
+        textView = (TextView) findViewById(R.id.textView);
+        editText = (TextView) findViewById(R.id.editText);
+
+        if ( btnText.equals("Dec"))
+        {
+            // z desatinnej do binarnej
+            if(!editTextIfNumber.equals(""))
+            {
+                try
+                {
+                    editTextIfNumber = Integer.toString(Integer.valueOf(editTextIfNumber),2);
+                    finalString = "";
+                    textView.setText("");
+                    editText.setText(editTextIfNumber);
+                    btn.setText("Bin");
+                }
+                catch ( Exception e)
+                {
+
+                }
+            }
+        }
+        else if ( btnText.equals("Bin"))
+        {
+            // z binarnej do hexa
+            if(!editTextIfNumber.equals(""))
+            {
+                try {
+                    Integer binToHex = Integer.parseInt(editTextIfNumber,2);
+                    editTextIfNumber = Integer.toString(binToHex,16);
+                    finalString = "";
+                    textView.setText("");
+                    editText.setText(editTextIfNumber);
+                    btn.setText("Hex");
+                }
+                catch ( Exception e)
+                {
+
+                }
+            }
+        }
+        else
+        {
+            //z hexa do binarnej
+            if(!editTextIfNumber.equals(""))
+            {
+                try
+                {
+                    Integer hexaToDec = Integer.parseInt(editTextIfNumber,16);
+                    editTextIfNumber = hexaToDec.toString();
+                    finalString = "";
+                    textView.setText("");
+                    editText.setText(editTextIfNumber);
+                    btn.setText("Dec");
+
+                }
+                catch ( Exception e)
+                {
+
+                }
+            }
+        }
+    }
+
+    public void generator(Integer gen)
+    {
+        textView = (TextView) findViewById(R.id.textView);
+        editText = (TextView) findViewById(R.id.editText);
+
+        if ( isCharacterNumber(""))
+        {
+            editText.setText(gen.toString());
+            editTextIfNumber = gen.toString();
+
+            finalString = finalString + gen.toString();
+            textView.setText(finalString);
+        }
+        else
+        {
+            editTextIfNumber = editTextIfNumber + gen.toString();
+            editText.setText(editTextIfNumber);
+
+            finalString = finalString + gen.toString();
+            textView.setText(finalString);
+        }
+    }
+
+    public static int randInt(int min, int max)
+    {
+        Double randomNum = Math.random() * ( max - min );
+        return randomNum.intValue();
+    }
+
     public void ButtonOnClick(View v) {
         switch (v.getId()) {
             case R.id.number0:
@@ -144,9 +294,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.buttonMocnina:
                 setEditAndTextView("^");break;
             case R.id.buttonSustava:
-                break;
+                decBinHex(); break;
             case R.id.buttonFaktorial:
                 setEditAndTextView("!");break;
+            case R.id.buttonGenerator:
+                generator(randInt(1,999999));break;
             case R.id.buttonDelete:
                 deleteLastChar();break;
         }
