@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -40,16 +41,17 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
+
+        <ImageButton
+            android:src="@drawable/factorial"
             android:onClick="ButtonOnClick"
-            android:text="!"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/buttonFaktorial"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:background="@color/fourButtons"
-            android:layout_marginRight="2dp"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -59,28 +61,31 @@
 
         <Button
             android:onClick="ButtonOnClick"
-            android:text="D"
+            android:text="Dec"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/buttonSustava"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:background="@color/fourButtons"
-            android:layout_marginRight="2dp"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <Button
+        <ImageButton
+            android:src="@drawable/generate"
             android:onClick="ButtonOnClick"
-            android:text="Delete"
+            android:text="Generate"
+            android:textSize="15dp"
             android:background="@color/classicButtons"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/buttonDelete"
-            android:layout_weight="2"
+            android:id="@+id/buttonNumberSystem"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
@@ -88,10 +93,20 @@
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <TextView
-            android:layout_width="2dp"
-            android:background="@android:color/holo_blue_dark"
-            android:layout_height="match_parent"/>
+        <ImageButton
+            android:onClick="ButtonOnClick"
+            android:background="@color/classicButtons"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/buttonDelete"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            app:srcCompat="@drawable/delete" />
 
     </LinearLayout>
 
@@ -101,34 +116,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
+
         <Button
             android:onClick="ButtonOnClick"
             android:text="^"
+            android:textSize="25dp"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/buttonMocnina"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:background="@color/fourButtons"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <Button
+        <ImageButton
+            android:src="@drawable/square"
             android:onClick="ButtonOnClick"
             android:text="√"
+            android:textSize="30dp"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/buttonOdmocnina"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:background="@color/fourButtons"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -138,30 +159,35 @@
         <Button
             android:onClick="ButtonOnClick"
             android:text="( )"
+            android:textSize="23dp"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/buttonPercentage"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@color/classicButtons"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <Button
+        <ImageButton
+            android:src="@drawable/divide"
             android:onClick="ButtonOnClick"
             android:text="/"
+            android:textSize="30dp"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/buttonDevide"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@color/classicButtons"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -183,8 +209,8 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -200,8 +226,8 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -217,24 +243,27 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <Button
+        <ImageButton
+            android:src="@drawable/multiply"
             android:onClick="ButtonOnClick"
             android:text="*"
+            android:textSize="30dp"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/buttonMultiple"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@color/classicButtons"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -257,8 +286,8 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -274,8 +303,8 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -291,24 +320,27 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <Button
+        <ImageButton
+            android:src="@drawable/minus"
             android:onClick="ButtonOnClick"
             android:text="-"
+            android:textSize="30dp"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/buttonMinus"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@color/classicButtons"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -330,8 +362,8 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -347,8 +379,8 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -364,24 +396,24 @@
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <Button
+        <ImageButton
             android:onClick="ButtonOnClick"
-            android:text="+"
+            android:src="@drawable/plus"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/buttonPlus"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@color/classicButtons"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -397,7 +429,7 @@
 
         <TextView
             android:layout_marginTop="2dp"
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:background="@android:color/darker_gray"
             android:layout_height="match_parent"/>
 
@@ -410,8 +442,8 @@
             android:layout_weight="2"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@android:color/darker_gray"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
@@ -421,30 +453,35 @@
         <Button
             android:onClick="ButtonOnClick"
             android:text=","
+            android:textSize="25dp"
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/buttonPoint"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:background="@color/classicButtons"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
-        <Button
+        <ImageButton
+            android:src="@drawable/equal"
             android:onClick="ButtonOnClick"
             android:text="="
+            android:textSize="30dp"
+
             android:background="@color/classicButtons"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/buttonEqual"
             android:layout_weight="1"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:fontFamily="sans-serif"
             android:textAllCaps="false"
