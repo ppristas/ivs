@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">@color/classicButtons</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent">#3c9cbd</color>
     <color name="fourButtons">#7abad8</color>
     <color name="classicButtons">#3c9cbd</color>
 </resources>

@@ -65,11 +65,14 @@ public class MainActivity extends AppCompatActivity
                                         String minStr = userInputMin.getText().toString();
                                         String maxStr = userInputMax.getText().toString();
 
-                                        try{
-                                            max = Integer.valueOf(maxStr);
-                                            min = Integer.valueOf(minStr);
+                                        if( !minStr.equals("") || !maxStr.equals(""))
+                                        {
+                                            try{
+                                                max = Integer.valueOf(maxStr);
+                                                min = Integer.valueOf(minStr);
 
-                                        }catch (Exception e){}
+                                            }catch (Exception e){}
+                                        }
                                     }
                                 })
                         .setNegativeButton("Cancel",
@@ -320,8 +323,9 @@ public class MainActivity extends AppCompatActivity
 
     public static int randInt(int min, int max)
     {
-        Double randomNum = Math.random() * ( max - min );
-        return randomNum.intValue();
+        Random generator = new Random();
+        int i = generator.nextInt(max -1) + min;
+        return i;
     }
 
     public void ButtonOnClick(View v) {
