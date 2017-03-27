@@ -1,13 +1,19 @@
 package com.example.enterprise.kalkulaka;
 
+import android.content.DialogInterface;
 import android.support.annotation.IntDef;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Calendar;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity
@@ -17,6 +23,10 @@ public class MainActivity extends AppCompatActivity
     public TextView editText;
     public String finalString;
     public String editTextIfNumber;
+    public Integer min;
+    public Integer max;
+    private EditText etOutputMin;
+    private EditText etOutputMax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,6 +35,59 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.main_activity_layout);
         finalString = "";
         editTextIfNumber = "";
+        etOutputMin = (EditText) findViewById(R.id.et_inputMin);
+        etOutputMax = (EditText) findViewById(R.id.et_inputMax);
+
+        min = 1;
+        max = 999999;
+
+        ImageButton generate = (ImageButton) findViewById(R.id.buttonGenerator);
+        generate.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v)
+            {
+
+                LayoutInflater li = LayoutInflater.from(MainActivity.this);
+                View dialogView = li.inflate(R.layout.custom_dialog, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                // set title
+                alertDialogBuilder.setTitle("Generátor čísiel");
+                // set custom dialog icon
+                alertDialogBuilder.setView(dialogView);
+                final EditText userInputMin = (EditText) dialogView.findViewById(R.id.et_inputMin);
+                final EditText userInputMax = (EditText) dialogView.findViewById(R.id.et_inputMax);
+                // set dialog message
+                alertDialogBuilder.setCancelable(false).setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id)
+                                    {
+                                        String minStr = userInputMin.getText().toString();
+                                        String maxStr = userInputMax.getText().toString();
+
+                                        try{
+                                            max = Integer.valueOf(maxStr);
+                                            min = Integer.valueOf(minStr);
+
+                                        }catch (Exception e){}
+                                    }
+                                })
+                        .setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id)
+                                    {
+                                        dialog.cancel();
+                                    }
+                                });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                // show it
+                alertDialog.show();
+
+                return true;
+            }
+        });
+
     }
 
     public void setEditAndTextView(String typeChar)
@@ -133,7 +196,7 @@ public class MainActivity extends AppCompatActivity
     public Boolean isCharacterOperator(String isOper)
     {
 
-        if ( isOper.equals("+") || isOper.equals("-") || isOper.equals("*") ||isOper.equals("/") ||isOper.equals("√") ||isOper.equals("^") ||isOper.equals("("))
+        if ( isOper.equals("+") || isOper.equals("-") || isOper.equals("x") ||isOper.equals("/") ||isOper.equals("√") ||isOper.equals("^") ||isOper.equals("("))
         {
             return true;
         }
@@ -288,11 +351,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.buttonMinus:
                 setEditAndTextView("-");break;
             case R.id.buttonMultiple:
-                setEditAndTextView("*");break;
+                setEditAndTextView("x");break;
             case R.id.buttonDevide:
                 setEditAndTextView("/");break;
             case R.id.buttonEqual:
-                setEditAndTextView("=");break;
+                sendToCalculate();break;
             case R.id.buttonPoint:
                 setEditAndTextView(",");break;
             case R.id.buttonPercentage:
@@ -307,10 +370,16 @@ public class MainActivity extends AppCompatActivity
             case R.id.buttonFaktorial:
                 setEditAndTextView("!");break;
             case R.id.buttonGenerator:
-                generator(randInt(1,999999));break;
+                generator(randInt( min, max));break;
             case R.id.buttonDelete:
                 deleteLastChar();break;
         }
+    }
+
+    public void sendToCalculate()
+    {
+        Calculate calculate = new Calculate();
+        calculate.Calculate(finalString);
     }
 
 }
