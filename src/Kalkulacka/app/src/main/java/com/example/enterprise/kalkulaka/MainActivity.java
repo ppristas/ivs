@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     public Integer max;
     private EditText etOutputMin;
     private EditText etOutputMax;
+    private Calculate calculate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity
         editTextIfNumber = "";
         etOutputMin = (EditText) findViewById(R.id.et_inputMin);
         etOutputMax = (EditText) findViewById(R.id.et_inputMax);
+        calculate = new Calculate();
 
         min = 1;
         max = 999999;
@@ -212,7 +214,7 @@ public class MainActivity extends AppCompatActivity
     {
 
         if ( isOper.equals("0") || isOper.equals("1") || isOper.equals("2") ||isOper.equals("3") ||isOper.equals("4") ||isOper.equals("5") ||isOper.equals("6")
-                || isOper.equals("7") || isOper.equals("8") ||isOper.equals("9") ||isOper.equals(",") )
+                || isOper.equals("7") || isOper.equals("8") ||isOper.equals("9") ||isOper.equals(".") )
         {
             return true;
         }
@@ -361,7 +363,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.buttonEqual:
                 sendToCalculate();break;
             case R.id.buttonPoint:
-                setEditAndTextView(",");break;
+                setEditAndTextView(".");break;
             case R.id.buttonPercentage:
                 String bracket = leftOrRightBracket();
                 setEditAndTextView(bracket);break;
@@ -382,7 +384,6 @@ public class MainActivity extends AppCompatActivity
 
     public void sendToCalculate()
     {
-        Calculate calculate = new Calculate();
         calculate.Calculate(finalString);
     }
 

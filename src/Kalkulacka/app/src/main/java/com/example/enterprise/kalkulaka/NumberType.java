@@ -25,4 +25,12 @@ public class NumberType implements Type
         return  numToStr;
     }
 
+    public boolean isOperator(){
+        return false;
+    }
+
+    public void Show_character(){
+        System.out.println("Number type : "  + this.number);
+    }
+
 }

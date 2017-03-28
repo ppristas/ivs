@@ -69,7 +69,7 @@ public class Parser
         String isNumber = String.valueOf(c);
 
         if ( isNumber.equals("0") || isNumber.equals("1") || isNumber.equals("2") ||isNumber.equals("3") ||isNumber.equals("4") ||isNumber.equals("5")
-             ||isNumber.equals("6") || isNumber.equals("7") || isNumber.equals("8") ||isNumber.equals("9") ||isNumber.equals(",") )
+             ||isNumber.equals("6") || isNumber.equals("7") || isNumber.equals("8") ||isNumber.equals("9") ||isNumber.equals(".") )
         {
             return true;
         }
