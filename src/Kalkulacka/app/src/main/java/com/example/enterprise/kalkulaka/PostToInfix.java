@@ -57,12 +57,10 @@ public class PostToInfix {
                     }
                     // new element has higher priority than the last one
                     else if(operator.hasLowerPriority(Stack.lastElement())){
-                        System.out.println("debug1");
                         Stack.add(operator);
                     }
                     else{
                         // we pop the last element from stack and push there the new one
-                        System.out.println("debug2");
                         OperatorType poped_element = Stack.pop();
                         output.add(poped_element);
                         Stack.add(operator);

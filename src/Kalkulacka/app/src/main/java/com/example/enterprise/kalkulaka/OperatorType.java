@@ -96,8 +96,9 @@ public class OperatorType implements Type
         }
     }
 
-    public void Show_character(){
-        System.out.println("Operator type: " + this.character);
+    public String Show_character()
+    {
+        return this.character;
     }
 
 }

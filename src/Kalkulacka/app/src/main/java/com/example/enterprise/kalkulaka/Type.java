@@ -7,5 +7,5 @@ package com.example.enterprise.kalkulaka;
 public interface Type {
 
     public boolean isOperator();
-    public void Show_character();
+    public String Show_character();
 }

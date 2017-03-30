@@ -20,8 +20,11 @@ public class Calculate
 
         Iterator<Type> It = postfix.iterator();
         while(It.hasNext()){
-            It.next().Show_character();
+            String st = It.next().Show_character();
+            System.out.println("character : " + st);
         }
+
+        Compute comp = new Compute();
 
         Double a = 2.3;
         return a;
