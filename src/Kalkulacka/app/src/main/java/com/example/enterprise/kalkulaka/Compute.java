@@ -14,7 +14,7 @@ public class Compute {
 
 
     /*
-        consturcotor of class Compute
+        constructor of class Compute
      */
     public Compute(){
         this.result = 1;
@@ -81,7 +81,7 @@ public class Compute {
 
         switch (operator.Show_character()){
             case "!":
-                double result = 0;
+                double result = factorial(number.number);
                 return result;
             case "√":
                 double result1 = 0;
@@ -90,4 +90,14 @@ public class Compute {
                 return 0.0;
         }
     }
+
+    protected double factorial(double number){
+        double iterator = 1.0,result = 1.0;
+        for(; iterator <= number; ++iterator){
+            result *= iterator;
+        }
+        return result;
+    }
+
+    
 }
