@@ -69,7 +69,7 @@ public class Compute {
                 return number_1.returnNumber() / number_2.returnNumber();
 
             case "^":
-                return number_1.returnNumber() / number_2.returnNumber();
+                return exp(number_1.number,number_2.number);
 
             default:
                 return 0.0;
@@ -84,7 +84,7 @@ public class Compute {
                 double result = factorial(number.number);
                 return result;
             case "√":
-                double result1 = 0;
+                double result1 = calling_sqrt((number.number));
                 return result1;
             default:
                 return 0.0;
@@ -92,6 +92,9 @@ public class Compute {
     }
 
     protected double factorial(double number){
+        if(number == 0.0){
+            return 0.0;
+        }
         double iterator = 1.0,result = 1.0;
         for(; iterator <= number; ++iterator){
             result *= iterator;
@@ -99,5 +102,49 @@ public class Compute {
         return result;
     }
 
-    
+    public double calling_sqrt(double input){
+        return (sqrt(input,input/2));
+    }
+
+    protected double sqrt(double input, double guess){
+
+        if(input == 0.0){
+            return 0.0;
+        }
+        double validation = input/guess;
+        if((this.Validate(validation,guess)) == true){
+            double result = (double)Math.round(guess*10000)/10000;
+            return result;
+        }
+        else{
+            return sqrt(input, make_better_guess(input,guess));
+        }
+    }
+
+    protected boolean Validate(double result, double guess){
+        if(Math.abs(result - guess) < 0.001){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+}
+
+    protected double make_better_guess(double input, double old_guess){
+        return ((old_guess + input / old_guess) / 2);
+    }
+
+    protected double exp(double input, double na){
+        if(na == 0.0){
+            return 1.0;
+        }
+        else {
+            double sum = input;
+            for (double i = 1; i < na; i++) {
+                sum = sum * input;
+            }
+            return sum;
+        }
+    }
 }
