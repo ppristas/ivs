@@ -1,25 +1,30 @@
 package com.example.enterprise.kalkulaka;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.IntDef;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Map;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity
 {
 
-    public TextView textView;
+    public EditText textView;
     public TextView editText;
     public String finalString;
     public String editTextIfNumber;
@@ -28,6 +33,9 @@ public class MainActivity extends AppCompatActivity
     private EditText etOutputMin;
     private EditText etOutputMax;
     private Calculate calculate;
+    public Integer leftBracket;
+    public Integer rightBracket;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +47,8 @@ public class MainActivity extends AppCompatActivity
         etOutputMin = (EditText) findViewById(R.id.et_inputMin);
         etOutputMax = (EditText) findViewById(R.id.et_inputMax);
         calculate = new Calculate();
+        leftBracket = 0;
+        rightBracket = 0;
 
         min = 1;
         max = 999999;
@@ -97,33 +107,35 @@ public class MainActivity extends AppCompatActivity
 
     public void setEditAndTextView(String typeChar)
     {
-        textView = (TextView) findViewById(R.id.textView);
-        editText = (TextView) findViewById(R.id.editText);
+        textView = (EditText) findViewById(R.id.textView);
+        finalString = textView.getText().toString();
 
-        editText.setText(setEditText(typeChar));
         finalString = finalString + typeChar;
         textView.setText(finalString);
+
+        textView.setSelection(textView.getText().length());
     }
 
-    public void deleteLastChar()
-    {
-        textView = (TextView) findViewById(R.id.textView);
-        editText = (TextView) findViewById(R.id.editText);
+    public void deleteLastChar() {
 
-        if ( finalString.length() != 0 )
-        {
-            finalString = finalString.substring(0,finalString.length()-1);
+        textView = (EditText) findViewById(R.id.textView);
+        finalString = textView.getText().toString();
+
+        if (finalString.length() != 0) {
+            Character c = finalString.charAt(finalString.length() - 1);
+
+            String bracket = String.valueOf(c);
+
+            if (bracket.equals("(")) {
+                leftBracket--;
+            }
+
+            if (bracket.equals(")")) {
+                rightBracket--;
+            }
+
+            finalString = finalString.substring(0, finalString.length() - 1);
             textView.setText(finalString);
-        }
-
-        if ( editTextIfNumber.length() != 0)
-        {
-            editTextIfNumber = editTextIfNumber.substring(0,editTextIfNumber.length()-1);
-            editText.setText(editTextIfNumber);
-        }
-        else
-        {
-            editText.setText("");
         }
     }
 
@@ -195,6 +207,22 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
+        if (bracket.equals("("))
+        {
+            leftBracket++;
+        }
+        else
+            rightBracket++;
+
+        if( bracket.equals(")"))
+        {
+            if( rightBracket > leftBracket)
+            {
+                bracket = "";
+                rightBracket--;
+            }
+        }
+
         return bracket;
     }
 
@@ -227,7 +255,7 @@ public class MainActivity extends AppCompatActivity
     {
         Button btn = (Button) findViewById(R.id.buttonSustava);
         String btnText = btn.getText().toString();
-        textView = (TextView) findViewById(R.id.textView);
+        textView = (EditText) findViewById(R.id.textView);
         editText = (TextView) findViewById(R.id.editText);
 
         if ( btnText.equals("Dec"))
@@ -302,21 +330,15 @@ public class MainActivity extends AppCompatActivity
 
     public void generator(Integer gen)
     {
-        textView = (TextView) findViewById(R.id.textView);
-        editText = (TextView) findViewById(R.id.editText);
+        textView = (EditText) findViewById(R.id.textView);
 
         if ( isCharacterNumber(""))
         {
-            editText.setText(gen.toString());
-            editTextIfNumber = gen.toString();
-
             finalString = finalString + gen.toString();
             textView.setText(finalString);
         }
         else
         {
-            editTextIfNumber = editTextIfNumber + gen.toString();
-            editText.setText(editTextIfNumber);
 
             finalString = finalString + gen.toString();
             textView.setText(finalString);
@@ -385,6 +407,25 @@ public class MainActivity extends AppCompatActivity
     public void sendToCalculate()
     {
         calculate.Calculate(finalString);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.to_do, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.nav_settings)
+        {
+            Intent intent = new Intent(MainActivity.this, ManualActivity.class);
+            startActivity(intent);
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
