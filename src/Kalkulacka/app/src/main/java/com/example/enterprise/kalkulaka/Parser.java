@@ -10,14 +10,18 @@ import java.util.Vector;
 public class Parser
 {
     Vector<Type> element = new Vector<Type>();
+    Boolean signedNumber;
 
     public Collection<Type> Parse(String s)
     {
         StringBuilder sb = new StringBuilder();
+        signedNumber = false;
 
         for(int i = 0; i < s.length(); i++)
         {
             Character c = s.charAt(i);
+
+            System.out.println("Test : " + c);
 
             if(isCharacterNumber(c))
             {
@@ -30,14 +34,48 @@ public class Parser
 
                 if(isCharacterOperator(d) && sb.length() > 0)
                 {
-                    element.add( new NumberType(sb.toString()));
+                    if (signedNumber)
+                    {
+                        element.add( new NumberType( "-" + sb.toString()));
+                    }
+                    else
+                        element.add( new NumberType(sb.toString()));
+
                     sb.setLength(0);
+                    signedNumber = false;
+
                 }
             }
 
             if(isCharacterOperator(c))
             {
-                element.add( new OperatorType(c) );
+                String minus = String.valueOf(c);
+
+                if ( i == 0)
+                {
+                    if (minus.equals("-"))
+                    {
+                        signedNumber = true;
+                    }
+                    else
+                    {
+                        element.add( new OperatorType(c) );
+                    }
+                }
+                else
+                {
+                    Character min = s.charAt(i-1);
+                    String leftBracket = String.valueOf(min);
+
+                    if ( (minus.equals("-") && leftBracket.equals("(")))
+                    {
+                        signedNumber = true;
+                    }
+                    else
+                    {
+                        element.add( new OperatorType(c) );
+                    }
+                }
             }
         }
 
