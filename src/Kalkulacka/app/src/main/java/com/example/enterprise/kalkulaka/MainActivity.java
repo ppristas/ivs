@@ -406,7 +406,10 @@ public class MainActivity extends AppCompatActivity
 
     public void sendToCalculate()
     {
-        calculate.Calculate(finalString);
+        Double calc = calculate.Calculate(finalString);
+        String result = calc.toString();
+        TextView resultView = (TextView) findViewById(R.id.editText);
+        resultView.setText(result);
     }
 
     @Override

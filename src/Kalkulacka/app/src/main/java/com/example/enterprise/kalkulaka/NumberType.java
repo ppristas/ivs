@@ -6,7 +6,7 @@ package com.example.enterprise.kalkulaka;
 
 public class NumberType implements Type
 {
-    Double number;
+    public Double number;
 
     public NumberType(String num)
     {
@@ -24,6 +24,10 @@ public class NumberType implements Type
         String numToStr;
         numToStr = ((Integer) number.intValue()).toString();
         return  numToStr;
+    }
+
+    public void setNumber(double number){
+        this.number = number;
     }
 
     public boolean isOperator()

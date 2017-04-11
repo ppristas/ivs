@@ -21,22 +21,32 @@ public class Compute {
         this.stack = new Stack<Type>();
     }
 
-    public int copmute(Collection<Type> input){
+    public double copmute(Collection<Type> input){
         Type item;
-        Type poped_item;
+        Type poped_item_1;
+        Type poped_item_2;
+        NumberType result_item;
         Iterator<Type> iterator = input.iterator();
 
         while(iterator.hasNext()){
             item = iterator.next();
             // item is operator
             if(item.isOperator()){
-                if(item.Show_character() == "!" || item.Show_character() == "√"){
-                    poped_item = stack.lastElement();
-
-
+                if(item.Show_character().equals("!") || item.Show_character().equals("√")){
+                    poped_item_1 = stack.lastElement();
+                    stack.pop();
+                    double ressult = math_function(poped_item_1,item);
+                    result_item = new NumberType(Double.toString(result));
+                    stack.push(result_item);
                 }
                 else {
-
+                    poped_item_1 = stack.lastElement();
+                    stack.pop();
+                    poped_item_2 = stack.lastElement();
+                    stack.pop();
+                    double result = math_function(poped_item_2,poped_item_1,item);
+                    result_item = new NumberType(Double.toString(result));
+                    stack.push(result_item);
                 }
             }
             // item is number
@@ -45,9 +55,8 @@ public class Compute {
             }
         }
 
-
-        // just temporary
-        return 0;
+        result_item = (NumberType) stack.lastElement();
+        return result_item.returnNumber();
     }
 
     protected double math_function(Type num1, Type num2, Type operator){
@@ -55,40 +64,42 @@ public class Compute {
         NumberType number_1 = (NumberType) num1;
         NumberType number_2 = (NumberType) num2;
 
-        switch (operator.Show_character()){
-            case "+":
-                return number_1.returnNumber() + number_2.returnNumber();
 
-            case "-":
-                return number_1.returnNumber() - number_2.returnNumber();
-
-            case "*":
-                return number_1.returnNumber() * number_2.returnNumber();
-
-            case "/":
-                return number_1.returnNumber() / number_2.returnNumber();
-
-            case "^":
-                return exp(number_1.number,number_2.number);
-
-            default:
-                return 0.0;
+        if(operator.Show_character().equals("+")) {
+            return number_1.returnNumber() + number_2.returnNumber();
         }
+        else if(operator.Show_character().equals("-")) {
+            return number_1.returnNumber() - number_2.returnNumber();
+        }
+        else if(operator.Show_character().equals("x")) {
+            return number_1.returnNumber() * number_2.returnNumber();
+        }
+        else if(operator.Show_character().equals("/")) {
+            return number_1.returnNumber() / number_2.returnNumber();
+        }
+        else if(operator.Show_character().equals("^")) {
+            return exp(number_1.number, number_2.number);
+        }
+
+        return 0.0;
+
     }
 
     protected double math_function(Type num, Type operator){
         NumberType number = (NumberType) num;
 
-        switch (operator.Show_character()){
-            case "!":
-                double result = factorial(number.number);
-                return result;
-            case "√":
-                double result1 = calling_sqrt((number.number));
-                return result1;
-            default:
-                return 0.0;
+
+        if(operator.Show_character().equals("!")) {
+            double result = factorial(number.number);
+            return result;
         }
+        else if(operator.Show_character().equals("√")) {
+            double result1 = calling_sqrt((number.number));
+            return result1;
+        }
+
+        return 0.0;
+
     }
 
     protected double factorial(double number){

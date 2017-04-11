@@ -25,8 +25,8 @@ public class Calculate
         }
 
         Compute comp = new Compute();
-
-        Double a = 2.3;
-        return a;
+        double result = comp.copmute(postfix);
+        System.out.println("Result is : " + result);
+        return result;
     }
 }
