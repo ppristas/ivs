@@ -35,7 +35,7 @@ public class Compute {
                 if(item.Show_character().equals("!") || item.Show_character().equals("√")){
                     poped_item_1 = stack.lastElement();
                     stack.pop();
-                    double ressult = math_function(poped_item_1,item);
+                    double result = math_function(poped_item_1,item);
                     result_item = new NumberType(Double.toString(result));
                     stack.push(result_item);
                 }
@@ -109,6 +109,7 @@ public class Compute {
         double iterator = 1.0,result = 1.0;
         for(; iterator <= number; ++iterator){
             result *= iterator;
+            System.out.println("DEBUG");
         }
         return result;
     }
