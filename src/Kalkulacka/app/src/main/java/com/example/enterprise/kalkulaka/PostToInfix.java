@@ -13,6 +13,7 @@ public class PostToInfix {
 
     private Stack<OperatorType> Stack;
     private Vector<Type> output;
+    public boolean Valid ;
 
     /*
         Constructor of PostToInfix class
@@ -22,6 +23,7 @@ public class PostToInfix {
     public PostToInfix(){
         Stack = new Stack<OperatorType>();
         output = new Vector<Type>();
+        Valid = true;
     }
 
     /*
@@ -80,7 +82,6 @@ public class PostToInfix {
                 output.add(poped_item);
             }
         }
-
         return output;
     }
 

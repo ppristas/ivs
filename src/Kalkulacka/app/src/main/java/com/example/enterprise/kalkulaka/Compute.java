@@ -1,6 +1,7 @@
 package com.example.enterprise.kalkulaka;
 
 import java.util.Collection;
+import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -11,6 +12,7 @@ import java.util.Stack;
 public class Compute {
     private int result;
     private Stack<Type> stack;
+    public boolean Valid;
 
 
     /*
@@ -19,6 +21,7 @@ public class Compute {
     public Compute(){
         this.result = 1;
         this.stack = new Stack<Type>();
+        Valid = true;
     }
 
     public double copmute(Collection<Type> input){
@@ -33,20 +36,32 @@ public class Compute {
             // item is operator
             if(item.isOperator()){
                 if(item.Show_character().equals("!") || item.Show_character().equals("√")){
-                    poped_item_1 = stack.lastElement();
-                    stack.pop();
-                    double result = math_function(poped_item_1,item);
-                    result_item = new NumberType(Double.toString(result));
-                    stack.push(result_item);
+                    try {
+                        poped_item_1 = stack.lastElement();
+                        stack.pop();
+                        double result = math_function(poped_item_1, item);
+                        result_item = new NumberType(Double.toString(result));
+                        stack.push(result_item);
+                    }catch (EmptyStackException exception){
+                        Valid = false;
+                        return 0.0;
+                    }
                 }
                 else {
-                    poped_item_1 = stack.lastElement();
-                    stack.pop();
-                    poped_item_2 = stack.lastElement();
-                    stack.pop();
-                    double result = math_function(poped_item_2,poped_item_1,item);
-                    result_item = new NumberType(Double.toString(result));
-                    stack.push(result_item);
+                    try{
+                        poped_item_1 = stack.lastElement();
+                        stack.pop();
+                        poped_item_2 = stack.lastElement();
+                        stack.pop();
+                        double result = math_function(poped_item_2,poped_item_1,item);
+                        result_item = new NumberType(Double.toString(result));
+                        stack.push(result_item);
+                    }catch (EmptyStackException exception){
+                        Valid = false;
+                        return 0.0;
+                    }
+
+
                 }
             }
             // item is number

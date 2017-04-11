@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class Calculate
 {
 
-    public double Calculate(String example)
+    public String Calculate(String example)
     {
         Parser parser = new Parser();
         PostToInfix convertor = new PostToInfix();
@@ -26,7 +26,10 @@ public class Calculate
 
         Compute comp = new Compute();
         double result = comp.copmute(postfix);
+        if(comp.Valid == false){
+            return "invalid expression";
+        }
         System.out.println("Result is : " + result);
-        return result;
+        return Double.toString(result);
     }
 }
