@@ -2,6 +2,7 @@ package com.example.enterprise.kalkulaka;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.support.annotation.IntDef;
 import android.support.v7.app.AlertDialog;
@@ -452,8 +453,6 @@ public class MainActivity extends AppCompatActivity
 
     public void sendToCalculate()
     {
-        System.out.println("-----> " + finalString);
-
         String result = calculate.Calculate(finalString);
         TextView resultView = (TextView) findViewById(R.id.editText);
         resultView.setTextColor(Color.parseColor("#3cbd5e"));
