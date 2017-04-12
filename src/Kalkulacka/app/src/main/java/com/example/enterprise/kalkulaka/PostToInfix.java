@@ -13,7 +13,6 @@ public class PostToInfix {
 
     private Stack<OperatorType> Stack;
     private Vector<Type> output;
-    public boolean Valid ;
 
     /*
         Constructor of PostToInfix class
@@ -23,7 +22,6 @@ public class PostToInfix {
     public PostToInfix(){
         Stack = new Stack<OperatorType>();
         output = new Vector<Type>();
-        Valid = true;
     }
 
     /*
@@ -56,6 +54,10 @@ public class PostToInfix {
                             output.add(poped_element);
                             poped_element = Stack.pop();
                         }
+                    }
+                    // operator ( goes on stack without any check
+                    else if(operator.character.equals("(")){
+                        Stack.add(operator);
                     }
                     // new element has higher priority than the last one
                     else if(operator.hasLowerPriority(Stack.lastElement())){

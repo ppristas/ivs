@@ -31,5 +31,7 @@ public class Calculate
         }
         System.out.println("Result is : " + result);
         return Double.toString(result);
+
+        //return "0.0";
     }
 }

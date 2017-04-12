@@ -32,6 +32,7 @@ public class Compute {
         Iterator<Type> iterator = input.iterator();
 
         while(iterator.hasNext()){
+            System.out.println("DEBUG");
             item = iterator.next();
             // item is operator
             if(item.isOperator()){
