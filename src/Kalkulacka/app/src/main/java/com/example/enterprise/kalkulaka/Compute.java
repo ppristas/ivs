@@ -3,6 +3,7 @@ package com.example.enterprise.kalkulaka;
 import java.util.Collection;
 import java.util.EmptyStackException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 /**
@@ -43,7 +44,11 @@ public class Compute {
                         double result = math_function(poped_item_1, item);
                         result_item = new NumberType(Double.toString(result));
                         stack.push(result_item);
-                    }catch (EmptyStackException exception){
+                    }catch (EmptyStackException e){
+                        Valid = false;
+                        return 0.0;
+                    }
+                    catch(NoSuchElementException e){
                         Valid = false;
                         return 0.0;
                     }
@@ -57,7 +62,11 @@ public class Compute {
                         double result = math_function(poped_item_2,poped_item_1,item);
                         result_item = new NumberType(Double.toString(result));
                         stack.push(result_item);
-                    }catch (EmptyStackException exception){
+                    }catch (EmptyStackException e){
+                        Valid = false;
+                        return 0.0;
+                    }
+                    catch(NoSuchElementException e){
                         Valid = false;
                         return 0.0;
                     }
