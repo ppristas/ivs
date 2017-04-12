@@ -2,6 +2,7 @@ package com.example.enterprise.kalkulaka;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.IntDef;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -108,7 +109,19 @@ public class MainActivity extends AppCompatActivity
     public void setEditAndTextView(String typeChar)
     {
         textView = (EditText) findViewById(R.id.textView);
+        editText = (TextView) findViewById(R.id.editText);
         finalString = textView.getText().toString();
+        Button btn = (Button) findViewById(R.id.buttonSustava);
+
+        if( !editText.getText().toString().equals("") && btn.getText().toString().equals("Dec"))
+        {
+            finalString = editText.getText().toString();
+            editText.setText("");
+        }
+        else
+        {
+            editText.setText("");
+        }
 
         finalString = finalString + typeChar;
         textView.setText(finalString);
@@ -116,26 +129,39 @@ public class MainActivity extends AppCompatActivity
         textView.setSelection(textView.getText().length());
     }
 
-    public void deleteLastChar() {
-
+    public void deleteLastChar()
+    {
         textView = (EditText) findViewById(R.id.textView);
+        textView.setSelection(textView.getText().length());
+        editText = (TextView) findViewById(R.id.editText);
         finalString = textView.getText().toString();
+        Button btn = (Button) findViewById(R.id.buttonSustava);
 
-        if (finalString.length() != 0) {
-            Character c = finalString.charAt(finalString.length() - 1);
+        if ( !editText.getText().toString().equals(""))
+        {
+            editText.setText("");
+            textView.setText("");
+            btn.setText("Dec");
+        }
+        else {
 
-            String bracket = String.valueOf(c);
+            if (finalString.length() != 0) {
+                Character c = finalString.charAt(finalString.length() - 1);
 
-            if (bracket.equals("(")) {
-                leftBracket--;
+                String bracket = String.valueOf(c);
+
+                if (bracket.equals("(")) {
+                    leftBracket--;
+                }
+
+                if (bracket.equals(")")) {
+                    rightBracket--;
+                }
+
+                finalString = finalString.substring(0, finalString.length() - 1);
+                textView.setText(finalString);
+                textView.setSelection(textView.getText().length());
             }
-
-            if (bracket.equals(")")) {
-                rightBracket--;
-            }
-
-            finalString = finalString.substring(0, finalString.length() - 1);
-            textView.setText(finalString);
         }
     }
 
@@ -253,79 +279,97 @@ public class MainActivity extends AppCompatActivity
 
     public void decBinHex()
     {
+        Boolean gen = true;
         Button btn = (Button) findViewById(R.id.buttonSustava);
         String btnText = btn.getText().toString();
         textView = (EditText) findViewById(R.id.textView);
         editText = (TextView) findViewById(R.id.editText);
 
-        if ( btnText.equals("Dec"))
+        editTextIfNumber = editText.getText().toString();
+
+        try
         {
-            // z desatinnej do binarnej
-            if(!editTextIfNumber.equals(""))
+            if( !btn.getText().toString().equals("Hex"))
             {
-                try
+                Double a = Double.valueOf(editTextIfNumber);
+                Integer b = a.intValue();
+                editTextIfNumber = b.toString();
+            }
+        }
+        catch (Exception e)
+        {
+            gen = false;
+        }
+
+        if( gen == true)
+        {
+
+            if ( btnText.equals("Dec"))
+            {
+                // z desatinnej do binarnej
+                if(!editTextIfNumber.equals(""))
                 {
-                    editTextIfNumber = Integer.toString(Integer.valueOf(editTextIfNumber),2);
-                    finalString = "";
-                    textView.setText("");
-                    editText.setText(editTextIfNumber);
+                    try
+                    {
+                        editTextIfNumber = Integer.toString(Integer.valueOf(editTextIfNumber),2);
+                        editText.setText(editTextIfNumber);
+                        btn.setText("Bin");
+                    }
+                    catch ( Exception e)
+                    {
+                        btn.setText("Bin");
+                    }
+                }
+                else
                     btn.setText("Bin");
-                }
-                catch ( Exception e)
-                {
-                    btn.setText("Bin");
-                }
             }
-            else
-                btn.setText("Bin");
-        }
-        else if ( btnText.equals("Bin"))
-        {
-            // z binarnej do hexa
-            if(!editTextIfNumber.equals(""))
+            else if ( btnText.equals("Bin"))
             {
-                try {
-                    Integer binToHex = Integer.parseInt(editTextIfNumber,2);
-                    editTextIfNumber = Integer.toString(binToHex,16);
-                    finalString = "";
-                    textView.setText("");
-                    editText.setText(editTextIfNumber);
-                    btn.setText("Hex");
-                }
-                catch ( Exception e)
+                // z binarnej do hexa
+                if(!editTextIfNumber.equals(""))
                 {
+                    try {
+                        Integer binToHex = Integer.parseInt(editTextIfNumber,2);
+                        editTextIfNumber = Integer.toString(binToHex,16);
+                        editText.setText(editTextIfNumber);
+                        btn.setText("Hex");
+                    }
+                    catch ( Exception e)
+                    {
+                        btn.setText("Hex");
+
+                    }
+                }
+                else
                     btn.setText("Hex");
 
-                }
             }
             else
-                btn.setText("Hex");
-
-        }
-        else
-        {
-            //z hexa do binarnej
-            if(!editTextIfNumber.equals(""))
             {
-                try
+                //z hexa do binarnej
+                if(!editTextIfNumber.equals(""))
                 {
-                    Integer hexaToDec = Integer.parseInt(editTextIfNumber,16);
-                    editTextIfNumber = hexaToDec.toString();
-                    finalString = "";
-                    textView.setText("");
-                    editText.setText(editTextIfNumber);
-                    btn.setText("Dec");
 
-                }
-                catch ( Exception e)
-                {
-                    btn.setText("Dec");
+                    try
+                    {
+                        Long hexaToDec = Long.parseLong(editTextIfNumber, 16);
+                        editTextIfNumber = hexaToDec.toString();
+                        editText.setText(editTextIfNumber);
+                        btn.setText("Dec");
 
+                    }
+                    catch ( Exception e)
+                    {
+                        btn.setText("Dec");
+
+                    }
                 }
+                else
+                    btn.setText("Dec");
             }
-            else
-                btn.setText("Dec");
+
         }
+
     }
 
     public void generator(Integer gen)
@@ -343,6 +387,8 @@ public class MainActivity extends AppCompatActivity
             finalString = finalString + gen.toString();
             textView.setText(finalString);
         }
+        textView.setSelection(textView.getText().length());
+
     }
 
     public static int randInt(int min, int max)
@@ -406,8 +452,11 @@ public class MainActivity extends AppCompatActivity
 
     public void sendToCalculate()
     {
+        System.out.println("-----> " + finalString);
+
         String result = calculate.Calculate(finalString);
         TextView resultView = (TextView) findViewById(R.id.editText);
+        resultView.setTextColor(Color.parseColor("#3cbd5e"));
         resultView.setText(result);
     }
 
