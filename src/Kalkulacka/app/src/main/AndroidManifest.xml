@@ -24,6 +24,11 @@
             android:label="Uživateľská príručka"
             android:name=".ManualActivity"/>
 
+        <activity
+            android:screenOrientation="portrait"
+            android:label="Smerodatná odchylka"
+            android:name=".ProfilingActivity"/>
+
     </application>
 
 </manifest>

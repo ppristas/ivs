@@ -27,4 +27,22 @@ public class ManualActivity extends AppCompatActivity
         setContentView(R.layout.manual_layout);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.to_do_2, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_main_page)
+        {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

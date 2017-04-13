@@ -472,8 +472,14 @@ public class MainActivity extends AppCompatActivity
         {
             Intent intent = new Intent(MainActivity.this, ManualActivity.class);
             startActivity(intent);
-
         }
+
+        if (id == R.id.nav_profiling)
+        {
+            Intent intent = new Intent(MainActivity.this, ProfilingActivity.class);
+            startActivity(intent);
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
