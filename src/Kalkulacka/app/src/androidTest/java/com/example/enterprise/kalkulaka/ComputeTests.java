@@ -42,18 +42,45 @@ public class ComputeTests {
     }
 
     /*
+    Testing min function, result should be negative 1
+     */
+    @Test
+    public void Min_Test_1() {
+        NumberType number_1 = new NumberType("5.0");
+        NumberType number_2 = new NumberType("6.0");
+        OperatorType operator = new OperatorType('-');
+        Compute comp = new Compute();
+
+        double result = comp.math_function(number_1,number_2,operator);
+        assertEquals(result,-1.0);
+    }
+
+    /*
+    Testing min function,result should be positive 4
+     */
+    @Test
+    public void Min_Test_2() {
+        NumberType number_1 = new NumberType("7.0");
+        NumberType number_2 = new NumberType("3.0");
+        OperatorType operator = new OperatorType('-');
+        Compute comp = new Compute();
+
+        double result = comp.math_function(number_1, number_2, operator);
+        assertEquals(result, 4.0);
+    }
+
+    /*
     Testing mul function, normal use case
      */
     @Test
     public void Mul_Test_1(){
         NumberType number_1 = new NumberType("3.0");
         NumberType number_2 = new NumberType("5.0");
-        OperatorType operator = new OperatorType('*');
+        OperatorType operator = new OperatorType('x');
         Compute comp = new Compute();
 
         double result = comp.math_function(number_1,number_2,operator);
         assertEquals(result,15.0);
-
     }
 
     /*
@@ -63,7 +90,7 @@ public class ComputeTests {
     public void Mul_Test_2(){
         NumberType number_1 = new NumberType("3.0");
         NumberType number_2 = new NumberType("0.0");
-        OperatorType operator = new OperatorType('*');
+        OperatorType operator = new OperatorType('x');
         Compute comp = new Compute();
 
         double result = comp.math_function(number_1,number_2,operator);
@@ -171,7 +198,5 @@ public class ComputeTests {
         double result = comp.math_function(number_1,number_2,operator);
         assertEquals(result,1.0);
     }
-
-
 
 }
