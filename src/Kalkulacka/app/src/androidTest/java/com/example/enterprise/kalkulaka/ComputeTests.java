@@ -3,6 +3,10 @@ package com.example.enterprise.kalkulaka;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static junit.framework.Assert.*;
 
 /**
@@ -178,12 +182,12 @@ public class ComputeTests {
      */
     @Test
     public void Exp_Test_1(){
-        NumberType number_1 = new NumberType("3.0");
-        NumberType number_2 = new NumberType("2.0");
+        NumberType number_1 = new NumberType("10.0");
+        NumberType number_2 = new NumberType("10.0");
         OperatorType operator = new OperatorType('^');
         Compute comp = new Compute();
         double result = comp.math_function(number_1,number_2,operator);
-        assertEquals(result,9.0);
+        assertEquals(result,10000000000.0);
     }
 
     /*
@@ -197,6 +201,28 @@ public class ComputeTests {
         Compute comp = new Compute();
         double result = comp.math_function(number_1,number_2,operator);
         assertEquals(result,1.0);
+    }
+
+    /*
+    Testing Standard deviation
+     */
+    @Test
+    public void Std_deviation1() {
+        StandardDeviations comp = new StandardDeviations();
+        ArrayList list = new ArrayList<Double>(Arrays.asList(12.0, 30.0 , 33.0));
+        double result = comp.comp(list);
+        assertEquals(result,9.2736);
+    }
+
+    /*
+    Testing Standard deviation
+     */
+    @Test
+    public void Std_deviation2() {
+        StandardDeviations comp = new StandardDeviations();
+        ArrayList list = new ArrayList<Double>(Arrays.<Double>asList(-5.0, -4.0, 7.5, 3.5 , 10.0, 2.0, 6.0, 9.0, 11.0, 100.0, 113.0));
+        double result = comp.comp(list);
+        assertEquals(result,39.774);
     }
 
 }
