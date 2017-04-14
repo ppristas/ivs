@@ -12,6 +12,8 @@ public class Calculate
 
     public String Calculate(String example)
     {
+
+
         Parser parser = new Parser();
         PostToInfix convertor = new PostToInfix();
 
@@ -32,6 +34,6 @@ public class Calculate
         System.out.println("Result is : " + result);
         return Double.toString(result);
 
-        //return "0.0";
+
     }
 }

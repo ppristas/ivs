@@ -2,6 +2,7 @@ package com.example.enterprise.kalkulaka;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +10,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class ProfilingActivity extends AppCompatActivity
 {
 
+    private StandardDeviations dev = new StandardDeviations();
+    List<Double> list = new ArrayList<>();
+    String text = "";
     String result;
 
     @Override
@@ -20,6 +32,32 @@ public class ProfilingActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profiling_activity_layout);
+        try
+        {
+            InputStreamReader reader = new InputStreamReader(getAssets().open("test.txt"));
+            int c;
+            while ((c = reader.read()) != -1) {
+                char character = (char) c;
+                if(character == ','){
+                    list.add(Double.parseDouble(text));
+                    text = "";
+                    continue;
+                }
+                text += character;
+            }
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(this, "Chyba pri načítaní súboru test.txt",Toast.LENGTH_LONG).show();
+        }
+
+        Iterator<Double> It = list.iterator();
+        while(It.hasNext()){
+            Double st = It.next();
+            System.out.println("character : " + st.toString());
+        }
+
+
     }
 
     //zobrazi demo výsledok aký mu pošleme
@@ -32,8 +70,7 @@ public class ProfilingActivity extends AppCompatActivity
                 result = "Sem dať Výsledok";
                 break;
             case R.id.buttonProfiling:
-                //sem vypocet odchylky
-                result = "Sem dať Výsledok";
+                result =  Double.toString(dev.comp(list));
                 break;
         }
 
