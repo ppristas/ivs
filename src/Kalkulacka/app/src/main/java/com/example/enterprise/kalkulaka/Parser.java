@@ -7,11 +7,13 @@ import java.util.Vector;
  * Created by enterprise on 27.3.17.
  */
 
+// trieda reprezentujuca parser
 public class Parser
 {
     Vector<Type> element = new Vector<Type>();
     Boolean signedNumber;
 
+    //parser kalkulacky
     public Collection<Type> Parse(String s)
     {
         StringBuilder sb = new StringBuilder();
@@ -87,7 +89,7 @@ public class Parser
         return element;
     }
 
-
+// ci je znak operator
     public Boolean isCharacterOperator( Character c)
     {
         String isOper = String.valueOf(c);
@@ -101,6 +103,7 @@ public class Parser
             return false;
     }
 
+    // ci je znak cislo
     public Boolean isCharacterNumber(Character c)
     {
 

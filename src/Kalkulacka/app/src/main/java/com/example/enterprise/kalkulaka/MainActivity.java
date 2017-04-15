@@ -23,6 +23,7 @@ import java.util.Calendar;
 import java.util.Map;
 import java.util.Random;
 
+//hlavna aktivita aplikacie zobrazujuca UI kalkulacky
 public class MainActivity extends AppCompatActivity
 {
 
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    //nastavenie textu na zobrazenie
     public void setEditAndTextView(String typeChar)
     {
         textView = (EditText) findViewById(R.id.textView);
@@ -130,6 +132,7 @@ public class MainActivity extends AppCompatActivity
         textView.setSelection(textView.getText().length());
     }
 
+    //vymazanie posledneho znaku textu
     public void deleteLastChar()
     {
         textView = (EditText) findViewById(R.id.textView);
@@ -166,34 +169,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public String setEditText(String character)
-    {
-        String returnString;
-        //cislo alebo desatinna ciarka
-        if( isCharacterNumber(character))
-        {
-            if ( editTextIfNumber.equals(""))
-            {
-                editTextIfNumber = character;
-                returnString = character;
-            }
-            else
-            {
-                editTextIfNumber = editTextIfNumber + character;
-                returnString = editTextIfNumber;
-            }
-        }
-        //operator
-        else
-        {
-            returnString = character;
-            editTextIfNumber = "";
-        }
-
-
-        return returnString;
-    }
-
+// funkcia pre zistenie ktora zatvorka ma nasledovat
     public String leftOrRightBracket()
     {
         String bracket = "";
@@ -253,6 +229,7 @@ public class MainActivity extends AppCompatActivity
         return bracket;
     }
 
+    //zistenie znaku ci je operator
     public Boolean isCharacterOperator(String isOper)
     {
 
@@ -265,6 +242,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    //zistenie znaku ci je cislo
     public Boolean isCharacterNumber(String isOper)
     {
 
@@ -278,6 +256,8 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+
+    //convert do decimalnej, binarnej a sestnaskovej sustavy
     public void decBinHex()
     {
         Boolean gen = true;
@@ -373,6 +353,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    // generovanie cisla
     public void generator(Integer gen)
     {
         textView = (EditText) findViewById(R.id.textView);
@@ -392,6 +373,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    //pomocna funkcia pre generovanie cisla
     public static int randInt(int min, int max)
     {
         Random generator = new Random();
@@ -399,6 +381,7 @@ public class MainActivity extends AppCompatActivity
         return i;
     }
 
+    //funkcia repreznetujuca konecny automat pre rozhodnutie stlaceneho tlacitka
     public void ButtonOnClick(View v) {
         switch (v.getId()) {
             case R.id.number0:
@@ -451,6 +434,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    // funckia pre vypocet prikladu
     public void sendToCalculate()
     {
         String result = calculate.Calculate(finalString);
@@ -459,6 +443,7 @@ public class MainActivity extends AppCompatActivity
         resultView.setText(result);
     }
 
+    //vytvorenie menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -466,6 +451,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    // zobrazenie menu
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_settings)

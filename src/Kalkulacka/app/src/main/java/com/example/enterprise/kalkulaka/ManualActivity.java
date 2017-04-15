@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+//aktivita reprezentujuca uzivatelsku prirucku
 public class ManualActivity extends AppCompatActivity
 {
 
@@ -27,6 +28,7 @@ public class ManualActivity extends AppCompatActivity
         setContentView(R.layout.manual_layout);
     }
 
+    //vytvori menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -34,6 +36,7 @@ public class ManualActivity extends AppCompatActivity
         return true;
     }
 
+    //zobrazi menu
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 

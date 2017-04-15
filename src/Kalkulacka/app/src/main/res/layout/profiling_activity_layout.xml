@@ -7,16 +7,50 @@
         android:layout_width="wrap_content"
         android:layout_height="10dp" />
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/buttonDemo"
-        android:onClick="showDemo"
-        android:layout_marginLeft="10dp"
-        android:background="@color/colorAccent"
-        android:layout_marginRight="10dp"
-        android:text="Ukážka"
-        android:textColor="@color/white"
-        android:layout_height="50dp" />
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_height="50dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonDemo1"
+            android:onClick="showDemo"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Ukážka 1"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonDemo2"
+            android:onClick="showDemo"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Ukážka 2"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonDemo3"
+            android:onClick="showDemo"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Ukážka 3"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
 
     <android.support.v4.widget.Space
         android:layout_width="wrap_content"
@@ -29,7 +63,7 @@
         android:layout_marginLeft="10dp"
         android:backgroundTint="@color/colorAccent"
         android:layout_marginRight="10dp"
-        android:hint="nejaka napoveda ?"
+        android:hint="1.0,2.3,5,7.9"
         />
 
     <android.support.v4.widget.Space
