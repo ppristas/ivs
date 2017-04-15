@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interfacecom_1_1example_1_1enterprise_1_1kalkulaka_1_1Type.html" title="rozhranie pre typ(operator/cislo),reprezentacia znaku " alt="" coords="5,46,259,73"/>
+<area shape="rect" id="node2" href="$classcom_1_1example_1_1enterprise_1_1kalkulaka_1_1NumberType.html" title="konvertovanie cisla/operatora do retazca/double typu " alt="" coords="307,5,531,47"/>
+<area shape="rect" id="node3" href="$classcom_1_1example_1_1enterprise_1_1kalkulaka_1_1OperatorType.html" title="definuje typ operatora " alt="" coords="307,71,531,112"/>
+</map>
