@@ -1,3 +1,13 @@
+/**
+ * Tato aplikacia je rozsirenou verziou kalkulacky do druheho projektu IVS.
+ * Zahrna klasicke pocty a taktiez vypocet smerodatnej odchylky.
+ *
+ * @author Peter Miklanek, Juraj Medvec, Peter Pristas
+ * @version 1.0
+ * @since 15.4.2017
+ */
+
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 import android.content.DialogInterface;
@@ -23,7 +33,9 @@ import java.util.Calendar;
 import java.util.Map;
 import java.util.Random;
 
-//hlavna aktivita aplikacie zobrazujuca UI kalkulacky
+/**@class <MainActivity></MainActivity>
+ * @brief Hlavna aktivita aplikacie zobrazujuca UI kalulacky
+ */
 public class MainActivity extends AppCompatActivity
 {
 
@@ -66,13 +78,13 @@ public class MainActivity extends AppCompatActivity
                 View dialogView = li.inflate(R.layout.custom_dialog, null);
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                // set title
+                /** @param alertDialogBuilder.setTitle nastavuje titulok "Generator cisel"*/
                 alertDialogBuilder.setTitle("Generátor čísiel");
-                // set custom dialog icon
+                /** @param alertDialogBuilder.setView nastavi upravenu ikonu pre dialog*/
                 alertDialogBuilder.setView(dialogView);
                 final EditText userInputMin = (EditText) dialogView.findViewById(R.id.et_inputMin);
                 final EditText userInputMax = (EditText) dialogView.findViewById(R.id.et_inputMax);
-                // set dialog message
+                /** @param alertDialogBuilder.setCancelable nastavi spravu dialogu*/
                 alertDialogBuilder.setCancelable(false).setPositiveButton("OK",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id)
@@ -97,9 +109,9 @@ public class MainActivity extends AppCompatActivity
                                         dialog.cancel();
                                     }
                                 });
-                // create alert dialog
+                /** @param alertDialog.create() vytvori upozornenie pre dialog*/
                 AlertDialog alertDialog = alertDialogBuilder.create();
-                // show it
+                /** @param alertDialog.show() zobrazi upozornenie */
                 alertDialog.show();
 
                 return true;
@@ -108,7 +120,10 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    //nastavenie textu na zobrazenie
+    /** @fn setEditAndTextView(String typeChar)
+     *  @brief nastavenie textu na zobrazenie
+     *  @param typeChar retazec znakov
+     */
     public void setEditAndTextView(String typeChar)
     {
         textView = (EditText) findViewById(R.id.textView);
@@ -132,7 +147,9 @@ public class MainActivity extends AppCompatActivity
         textView.setSelection(textView.getText().length());
     }
 
-    //vymazanie posledneho znaku textu
+    /** @fn deleteLastChar()
+     *  @brief vymazanie posledneho znaku textu
+     */
     public void deleteLastChar()
     {
         textView = (EditText) findViewById(R.id.textView);
@@ -169,7 +186,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-// funkcia pre zistenie ktora zatvorka ma nasledovat
+    /**
+     * @fn leftOrRightBracket()
+     * @brief funkcia pre zistenie, ktora zatvorka ma nasledovat
+     * @return prava/lava zatvorka
+     */
     public String leftOrRightBracket()
     {
         String bracket = "";
@@ -230,6 +251,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     //zistenie znaku ci je operator
+
+    /**
+     * @fn isCharacterOperator()
+     * @brief zistenie znaku ci je operator
+     * @param isOper dany znak
+     * @return vrati bool hodnotu ci je dany znak operator
+     */
     public Boolean isCharacterOperator(String isOper)
     {
 
@@ -242,7 +270,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    //zistenie znaku ci je cislo
+    /**
+     * @fn isCharacterNumber
+     * @brief zistenie znaku ci je cislo
+     * @param isOper dany znak
+     * @return vrati bool hodnotu ci je dany znak cislo
+     */
     public Boolean isCharacterNumber(String isOper)
     {
 
@@ -256,8 +289,10 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
-    //convert do decimalnej, binarnej a sestnaskovej sustavy
+    /**
+     * @fn decBinHex()
+     * @brief prevod do decimalnej, binarnej a sestnastkovej sustavy
+     */
     public void decBinHex()
     {
         Boolean gen = true;
@@ -284,10 +319,11 @@ public class MainActivity extends AppCompatActivity
 
         if( gen == true)
         {
-
+            /** @fn btnText.equals("Dec"))
+             *  @brief prevod z desiatkovej do binarnej sustavy
+             */
             if ( btnText.equals("Dec"))
             {
-                // z desatinnej do binarnej
                 if(!editTextIfNumber.equals(""))
                 {
                     try
@@ -304,9 +340,12 @@ public class MainActivity extends AppCompatActivity
                 else
                     btn.setText("Bin");
             }
+            /**
+             * @fn btnText.equals("Bin"))
+             * @brief prevod z binarnej do sestnastkovej sustavy
+             */
             else if ( btnText.equals("Bin"))
             {
-                // z binarnej do hexa
                 if(!editTextIfNumber.equals(""))
                 {
                     try {
@@ -327,7 +366,9 @@ public class MainActivity extends AppCompatActivity
             }
             else
             {
-                //z hexa do binarnej
+                /**
+                 * @brief prevod zo sestnastkovej do binarnej sustavy
+                 */
                 if(!editTextIfNumber.equals(""))
                 {
 
@@ -353,7 +394,11 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    // generovanie cisla
+    /**
+     * @fn generator()
+     * @brief Generovanie cisla
+     * @param gen generovane cislo
+     */
     public void generator(Integer gen)
     {
         textView = (EditText) findViewById(R.id.textView);
@@ -373,7 +418,13 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    //pomocna funkcia pre generovanie cisla
+    /**
+     * @fn randInt()
+     * @brief pomocna funkcia pre generovanie cisla
+     * @param min minimum
+     * @param max maximum
+     * @return vratene vygenerovane cislo
+     */
     public static int randInt(int min, int max)
     {
         Random generator = new Random();
@@ -381,7 +432,11 @@ public class MainActivity extends AppCompatActivity
         return i;
     }
 
-    //funkcia repreznetujuca konecny automat pre rozhodnutie stlaceneho tlacitka
+    /**
+     * @fn ButtonOnClick
+     * @brief funkcia reprezentujuca konecny automat pre rozhodnutie stlaceneho tlacidla
+     * @param v View parameter
+     */
     public void ButtonOnClick(View v) {
         switch (v.getId()) {
             case R.id.number0:
@@ -434,7 +489,10 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    // funckia pre vypocet prikladu
+    /**
+     * @fn sendToCalculate()
+     * @brief funkcia pre vypocet prikladu
+     */
     public void sendToCalculate()
     {
         String result = calculate.Calculate(finalString);
@@ -443,15 +501,24 @@ public class MainActivity extends AppCompatActivity
         resultView.setText(result);
     }
 
-    //vytvorenie menu
+    /**
+     * @fn onCreateOptionsMenu()
+     * @brief vytvorenie Menu, vlozi polozky do listy akcii
+     * @param menu ponuka Menu
+     * @return vytvori menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.to_do, menu);
         return true;
     }
 
-    // zobrazenie menu
+    /**
+     * @fn onOptionsItemSelected()
+     * @brief Zobrazenie menu
+     * @param item polozka ktora ma byt zobrazena
+     * @return polozka na zobrazenie
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_settings)

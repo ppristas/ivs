@@ -1,3 +1,4 @@
+/**\package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 import java.util.Collection;
@@ -7,13 +8,23 @@ import java.util.Vector;
  * Created by enterprise on 27.3.17.
  */
 
-// trieda reprezentujuca parser
+/**
+ * \class <Parser></Parser>
+ * \brief trieda reprezentujuca parser
+ */
 public class Parser
 {
     Vector<Type> element = new Vector<Type>();
     Boolean signedNumber;
 
     //parser kalkulacky
+
+    /**
+     * \fn Parse()
+     * \brief Parser pre Kalkulacku
+     * \param s prijimany retazec
+     * \return prvok
+     */
     public Collection<Type> Parse(String s)
     {
         StringBuilder sb = new StringBuilder();
@@ -89,7 +100,14 @@ public class Parser
         return element;
     }
 
-// ci je znak operator
+
+    /**
+     *
+     * \fn isCharacterOperator()
+     * \brief overenie ci je znak operator
+     * \param c znak
+     * \return booleovska hodnota ci sa jedna o operator alebo nie
+     */
     public Boolean isCharacterOperator( Character c)
     {
         String isOper = String.valueOf(c);
@@ -103,7 +121,12 @@ public class Parser
             return false;
     }
 
-    // ci je znak cislo
+    /**
+     * \fn isCharacterNumber()
+     * \brief overenie ci je znak cislo
+     * \param c znak
+     * \return booleovska hodnota ci sa jedna o cislo alebo nie
+     */
     public Boolean isCharacterNumber(Character c)
     {
 

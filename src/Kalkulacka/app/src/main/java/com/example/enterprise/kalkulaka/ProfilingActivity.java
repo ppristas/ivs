@@ -1,3 +1,4 @@
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 import android.content.DialogInterface;
@@ -19,7 +20,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-//aktivita reprezentujuca vypocet smerodatnej odchylky
+/**
+ * @class <profilingActivity></profilingActivity>
+ * @brief aktivita reprezentujuca vypocet smerodatnej odchylky
+ */
 public class ProfilingActivity extends AppCompatActivity
 {
 
@@ -35,7 +39,11 @@ public class ProfilingActivity extends AppCompatActivity
         setContentView(R.layout.profiling_activity_layout);
     }
 
-    //nacita subor a ulozi do listu
+    /**
+     * @fn readFromTxt()
+     * @brief nacitanie suboru a ulozenie do zoznamu
+     * @param txt text
+     */
     public void readFromTxt(String txt)
     {
         try
@@ -65,7 +73,11 @@ public class ProfilingActivity extends AppCompatActivity
 
     }
 
-    //nacita vstup a ulozi do listu
+    /**
+     * @fn readEditText()
+     * @brief nacita vstup a ulozi do listu
+     * @return
+     */
     public Boolean readEditText()
     {
         EditText editText = (EditText) findViewById(R.id.editTextProfiling);
@@ -86,7 +98,7 @@ public class ProfilingActivity extends AppCompatActivity
                 }
                 catch (Exception e)
                 {
-                    Toast.makeText(this, "Chyba pri načítaní vstupu. \nProsím, skontrolujte si zadaný vstup",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Chyba pri načítaní vstupu. @nProsím, skontrolujte si zadaný vstup",Toast.LENGTH_LONG).show();
                     ret = false;
                     break;
                 }
@@ -108,7 +120,11 @@ public class ProfilingActivity extends AppCompatActivity
         return ret;
     }
 
-    //zobrazi demo výsledok aký mu pošleme
+    /**
+     * @fn showDemo()
+     * @brief zobrazenie demo-vysledku aky mu je zaslany
+     * @param v parameter View
+     */
     public void showDemo(View v)
     {
         result = "";
@@ -143,7 +159,12 @@ public class ProfilingActivity extends AppCompatActivity
         }
     }
 
-    //zobrazí alert dialog
+    /**
+     * @fn showAlertDialog()
+     * @brief zobrazi upozornenie dialogu
+     * @param result vysledok
+     * @param count pocet
+     */
     public void showAlertDialog(String result, String count)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(ProfilingActivity.this);
@@ -157,15 +178,23 @@ public class ProfilingActivity extends AppCompatActivity
         alert.show();
     }
 
-
-    //vymaže text
+    /**
+     * @fn deleteEditText()
+     * @brief vymaze text
+     * @param v parameter View
+     */
     public void deleteEditText(View v)
     {
         EditText editText = (EditText) findViewById(R.id.editTextProfiling);
         editText.setText("");
     }
 
-    //vytvori menu
+    /**
+     * @fn onCreateOptionsMenu()
+     * @brief vytvori menu
+     * @param menu zobrazenie ponuky Menu
+     * @return zobrazenie ponuky
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -173,7 +202,12 @@ public class ProfilingActivity extends AppCompatActivity
         return true;
     }
 
-    //spusti menu
+    /**
+     * @fn onOptionsItemSelected()
+     * @brief spustenie menu
+     * @param item polozka menu
+     * @return zobrazenie polozky
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

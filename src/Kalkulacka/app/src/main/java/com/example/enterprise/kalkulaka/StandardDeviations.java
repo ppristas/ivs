@@ -1,3 +1,4 @@
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 import java.io.BufferedReader;
@@ -15,6 +16,10 @@ import java.util.List;
  * Created by mikla on 14.4.2017.
  */
 
+/**
+ * @class <StandardDeviations></StandardDeviations>
+ * @brief trieda pre vypocet smerodatnej odchylky
+ */
 public class StandardDeviations {
 
 
@@ -23,6 +28,12 @@ public class StandardDeviations {
         comp = new Compute();
     }
 
+    /**
+     * @fn comp()
+     * @brief vypocet smerodatnej odchylky
+     * @param input vstupny zoznam cisel pre odchylku
+     * @return vysledok
+     */
     public double comp(List<Double> input){
         double sum = 0.0;
         double N = input.size();
@@ -37,6 +48,12 @@ public class StandardDeviations {
         return comp.sqrt(tsum,tsum/2);
     }
 
+    /**
+     * @fn Priemer()
+     * @brief vypocet priemeru zo zadanych vstupnych cisel
+     * @param input vstupny zoznam cisel
+     * @return priemer
+     */
     public double Priemer(List<Double> input){
         double sum = 0.0;
         for(int i = 0; i < input.size(); i++){

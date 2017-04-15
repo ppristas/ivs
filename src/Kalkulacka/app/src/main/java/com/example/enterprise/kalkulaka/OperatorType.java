@@ -1,9 +1,14 @@
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 /**
  * Created by enterprise on 27.3.17.
  */
 
+/**
+ * @class <OperatorType></OperatorType>
+ * @brief definuje typ operatora
+ */
 public class OperatorType implements Type
 {
 
@@ -85,6 +90,12 @@ public class OperatorType implements Type
         return true;
     }
 
+    /**
+     * @fn hasLowerPriority()
+     * @brief urcuje typ priority operatorov
+     * @param op1 operator
+     * @return priorita operatora
+     */
     public boolean hasLowerPriority(OperatorType op1){
         System.out.println(" hodnota op1 : " + op1.Priority);
         System.out.println(" hodnota this : " + this.Priority);

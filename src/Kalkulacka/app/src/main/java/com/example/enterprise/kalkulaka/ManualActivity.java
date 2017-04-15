@@ -1,3 +1,4 @@
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 import android.content.DialogInterface;
@@ -17,7 +18,11 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-//aktivita reprezentujuca uzivatelsku prirucku
+
+/**
+ * @class <ManualActivity></ManualActivity>
+ * @brief aktivita reprezentujuca uzivatelsku prirucku
+ */
 public class ManualActivity extends AppCompatActivity
 {
 
@@ -28,7 +33,12 @@ public class ManualActivity extends AppCompatActivity
         setContentView(R.layout.manual_layout);
     }
 
-    //vytvori menu
+    /**
+     * @fn onCreateOptionsMenu()
+     * @brief vytvorenie menu
+     * @param menu ponuka Menu
+     * @return vytvorena ponuka pre Menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -36,7 +46,12 @@ public class ManualActivity extends AppCompatActivity
         return true;
     }
 
-    //zobrazi menu
+    /**
+     * @fn onOptionsItemSelected()
+     * @brief zobrazenie menu
+     * @param item polozka ponuky Menu
+     * @return polozka z ponuky Menu
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 

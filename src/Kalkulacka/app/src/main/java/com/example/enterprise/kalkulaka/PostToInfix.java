@@ -1,3 +1,4 @@
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 import java.util.Collection;
@@ -9,25 +10,28 @@ import java.util.Vector;
  * Created by mikla on 28.3.2017.
  */
 
+/**
+ * @class <PostToInfix></PostToInfix>
+ * @brief prevod Postfixu do Infixu
+ */
 public class PostToInfix {
 
     private Stack<OperatorType> Stack;
     private Vector<Type> output;
 
-    /*
-        Constructor of PostToInfix class
-        @Param -
-        @Return -
+    /**
+     * @fn PostToInfix()
+     * @brief konstruktor
      */
     public PostToInfix(){
         Stack = new Stack<OperatorType>();
         output = new Vector<Type>();
     }
 
-    /*
-        Method to convert infix numeric array to postfix
-        @Param - Collection<Type> input
-        @Return - Collection<Type> output
+    /**
+     * @fn convert()
+     * @brief metoda konvertovania numerickeho pola infixu do postfixu
+     * @param input vstup
      */
     public Collection<Type> convert(Collection<Type> input){
 

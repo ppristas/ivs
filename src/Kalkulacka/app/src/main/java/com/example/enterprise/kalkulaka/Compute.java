@@ -1,3 +1,4 @@
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 import java.util.Collection;
@@ -10,14 +11,18 @@ import java.util.Stack;
  * Created by mikla on 28.3.2017.
  */
 
+/**
+ * @class <Compute></Compute>
+ * @brief vykonava vypocty z operatorov a operandov ulozene na zasobniku
+ */
 public class Compute {
     private int result;
     private Stack<Type> stack;
     public boolean Valid;
 
-
-    /*
-        constructor of class Compute
+    /**
+     * @fn Compute()
+     * @brief konstruktor triedy Compute
      */
     public Compute(){
         this.result = 1;
@@ -25,6 +30,12 @@ public class Compute {
         Valid = true;
     }
 
+    /**
+     * @fn compute
+     * @brief odkladanie poloziek na zasobnik
+     * @param input polozky zo vstupu
+     * @return cislo ako vysledok
+     */
     public double copmute(Collection<Type> input){
         Type item;
         Type poped_item_1;
@@ -84,6 +95,13 @@ public class Compute {
         return result_item.returnNumber();
     }
 
+    /**
+     * @fn math_function()
+     * @param num1 cislo_1
+     * @param num2 cislo_2
+     * @param operator operator(+-/*)
+     * @return vysledok
+     */
     protected double math_function(Type num1, Type num2, Type operator){
 
         NumberType number_1 = (NumberType) num1;
@@ -110,6 +128,12 @@ public class Compute {
 
     }
 
+    /**
+     * @fn math_function()
+     * @param num cislo
+     * @param operator operator odmocnina alebo faktorial
+     * @return vysledok
+     */
     protected double math_function(Type num, Type operator){
         NumberType number = (NumberType) num;
 
@@ -127,6 +151,12 @@ public class Compute {
 
     }
 
+    /**
+     * @fn factorial
+     * @brief vypocet faktorialu
+     * @param number cislo
+     * @return vysledok
+     */
     protected double factorial(double number){
         if(number == 0.0){
             return 0.0;
@@ -139,10 +169,22 @@ public class Compute {
         return result;
     }
 
+    /**
+     * @fn calling_sqrt()
+     * @brief volanie pre vypocet mocniny
+     * @param input vstupne cislo
+     * @return vysledok
+     */
     public double calling_sqrt(double input){
         return (sqrt(input,input/2));
     }
 
+    /**
+     * @fn sqrt()
+     * @brief vypocet mocniny
+     * @param input vstupne cislo
+     * @return vysledok
+     */
     protected double sqrt(double input, double guess){
 
         if(input == 0.0){
@@ -158,6 +200,13 @@ public class Compute {
         }
     }
 
+    /**
+     * @fn Validate()
+     * @brief overenie odhadu chyby
+     * @param result vysledok
+     * @param guess odhad
+     * @return boolean hodnota v pripade spravneho odhadu
+     */
     protected boolean Validate(double result, double guess){
         if(Math.abs(result - guess) < 0.001){
             return true;
@@ -168,10 +217,24 @@ public class Compute {
 
 }
 
+    /**
+     * @fn make_better_guess()
+     * @brief vytvorenie lepsieho odhadu
+     * @param input vstupne cislo
+     * @param old_guess predosly odhad
+     * @return novy odhad
+     */
     protected double make_better_guess(double input, double old_guess){
         return ((old_guess + input / old_guess) / 2);
     }
 
+    /**
+     * @fn exp()
+     * @brief exponent
+     * @param input pociatocny exponent
+     * @param na cislo exponentu(mocniny)
+     * @return cislo_exponentu
+     */
     protected double exp(double input, double na){
         if(na == 0.0){
             return 1.0;

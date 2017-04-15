@@ -1,9 +1,14 @@
+/**@package <com.example.enterprise.kalulaka></com.example.enterprise.kalulaka>*/
 package com.example.enterprise.kalkulaka;
 
 /**
  * Created by enterprise on 27.3.17.
  */
 
+/**
+ * @class <NumberType></NumberType>
+ * @brief konvertovanie cisla/operatora do retazca/double typu
+ */
 public class NumberType implements Type
 {
     public Double number;
@@ -19,6 +24,11 @@ public class NumberType implements Type
         return number;
     }
 
+    /**
+     * @fn numberToString()
+     * @brief prekonvertovanie cisla do retazca
+     * @return cislo typu retazec
+     */
     public String numberToString()
     {
         String numToStr;
