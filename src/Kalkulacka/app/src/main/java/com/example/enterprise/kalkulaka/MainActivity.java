@@ -133,8 +133,11 @@ public class MainActivity extends AppCompatActivity
 
         if( !editText.getText().toString().equals("") && btn.getText().toString().equals("Dec"))
         {
-            finalString = editText.getText().toString();
-            editText.setText("");
+            if(!editText.getText().toString().equals("invalid expression"))
+            {
+                finalString = editText.getText().toString();
+                editText.setText("");
+            }
         }
         else
         {
@@ -161,7 +164,10 @@ public class MainActivity extends AppCompatActivity
         if ( !editText.getText().toString().equals(""))
         {
             editText.setText("");
+            leftBracket = 0;
+            rightBracket = 0;
             textView.setText("");
+            finalString = "";
             btn.setText("Dec");
         }
         else {
@@ -246,6 +252,9 @@ public class MainActivity extends AppCompatActivity
                 rightBracket--;
             }
         }
+
+        System.out.println("----right----> " + rightBracket);
+        System.out.println("----left----> " + leftBracket);
 
         return bracket;
     }
