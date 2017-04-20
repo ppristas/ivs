@@ -16,7 +16,6 @@ import java.util.Stack;
  * @brief vykonava vypocty z operatorov a operandov ulozene na zasobniku
  */
 public class Compute {
-    private int result;
     private Stack<Type> stack;
     public boolean Valid;
 
@@ -25,7 +24,6 @@ public class Compute {
      * @brief konstruktor triedy Compute
      */
     public Compute(){
-        this.result = 1;
         this.stack = new Stack<Type>();
         Valid = true;
     }
@@ -44,7 +42,6 @@ public class Compute {
         Iterator<Type> iterator = input.iterator();
 
         while(iterator.hasNext()){
-            System.out.println("DEBUG");
             item = iterator.next();
             // item is operator
             if(item.isOperator()){
@@ -161,12 +158,14 @@ public class Compute {
         if(number == 0.0){
             return 0.0;
         }
+        double sign = 1.0;
+        sign = sign * number;
+        number = Math.abs(number);
         double iterator = 1.0,result = 1.0;
         for(; iterator <= number; ++iterator){
             result *= iterator;
-            System.out.println("DEBUG");
         }
-        return result;
+        return result*sign;
     }
 
     /**
@@ -176,6 +175,10 @@ public class Compute {
      * @return vysledok
      */
     public double calling_sqrt(double input){
+        if(input < 0){
+            Valid = false;
+            return 0.0;
+        }
         return (sqrt(input,input/2));
     }
 
@@ -240,11 +243,20 @@ public class Compute {
             return 1.0;
         }
         else {
-            double sum = input;
-            for (double i = 1; i < na; i++) {
-                sum = sum * input;
+            if(na < 0) {
+                if (input < 0) {
+                    return -1.0 / exp(input, na * (-1));
+                } else {
+                    return 1.0 / exp(input, na * (-1));
+                }
             }
-            return sum;
+            else {
+                double sum = input;
+                for (double i = 1; i < na; i++) {
+                    sum = sum * input;
+                }
+                return sum;
+            }
         }
     }
 }

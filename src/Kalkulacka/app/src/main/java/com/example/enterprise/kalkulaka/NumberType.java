@@ -18,7 +18,7 @@ public class NumberType implements Type
         number = Double.parseDouble(num);
     }
 
-    public Double returnNumber()
+    public double returnNumber()
 
     {
         return number;
