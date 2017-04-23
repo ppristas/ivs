@@ -1,0 +1,8 @@
+Rozdiely medzi plánom a skutočnosťou:
+1. Mieren posunuté termíny dokončenia istých celkov (dopredu aj dozadu)
+2. Implementácia back-endu bola vytváraná všetkými členami tímu
+3. Prípravva projektu na 1.odovzdanie prebehla o niečo skôr
+
+Celkové zhodnotenie:
+
+Stanovené termíny a úlohy medzi členmi boli vo väčšej miere dodržané

@@ -1,16 +1,14 @@
 #Makefile pre proj2 do IVS#
 
-PROJECT_NAME = IVS_proj2
+PROJECT_NAME = xmikla10
 #JAVA_FILES = $(shell find ./src/Kalkulacka/app/src/ -type f -name '*.java')
 #CLASSES_FILES = $(JAVA_FILES:./src/Kalkulacka/app/src/%.java=./classes/%.class)
 
 #Projektova struktura na vysledne zabalenie
-ALL_FILES = html mockup plan profiling src manual.pdf README.txt screenshot.png Makefile hodnoceni.txt
+ALL_FILES = doc install repo
+
 doc:
-	doxygen ./Doxyfile
+	cd ..  && cd .. && doxygen ./repo/src/Doxyfile
 
 pack:
-	zip $(PROJECT_NAME).zip $(ALL_FILES)
-
-clean:
-	$(RM) *.zip
+	cd .. && cd .. && zip -r $(PROJECT_NAME).zip $(ALL_FILES)

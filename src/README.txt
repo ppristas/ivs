@@ -1,0 +1,1 @@
+Zdrojovy kod pre profiling je sucastou aplikacie a nachadza sa v priecinku src

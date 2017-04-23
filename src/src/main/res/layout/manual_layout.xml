@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:weightSum="5"
+       android:layout_height="60dp">
+
+       <ImageButton
+           android:src="@drawable/plus"
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           style="@style/Widget.AppCompat.Button.Borderless"
+           android:background="@color/classicButtons"
+           android:layout_marginRight="1dp"
+           android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+           android:fontFamily="sans-serif"
+           android:textAllCaps="false"
+           android:textAlignment="center"
+           android:textColor="@android:color/background_light"
+           android:elevation="50dp" />
+
+       <Space
+           android:layout_width="20dp"
+           android:layout_height="wrap_content" />
+
+       <TextView
+           android:layout_width="0dp"
+           android:layout_weight="4"
+           android:text="Tlačítko Plus slúži na sčítanie dvoch čísiel \nNapríklad 2 + 3 = 5"
+           android:gravity="center|left"
+           android:layout_height="match_parent" />
+
+   </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/minus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Mínus slúži na odčítanie dvoch čísiel \nNapríklad 5 - 3 = 2"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/multiply"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Krát slúži na vynásobenie dvoch čísiel \nNapríklad 2 x 3 = 6"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/divide"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Deleno slúži na vydelenie dvoch čísiel \nNapríklad 6 / 2 = 3"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/equal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="#3cbd5e"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Rovná sa slúži na zobrazenie výsledku príkladu"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <Button
+            android:text="( )"
+            android:textSize="23dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Zátvorky slúži na oddelenie časti príkladu"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/square"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Odmocnina slúži na vyjadrenie odmocniny daného čísla  \nNapríklad √25 = 5"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <Button
+            android:text="^"
+            android:textSize="25dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Mocnina slúži na vyjadrenie mocniny daného čísla  \nNapríklad 5^2 = 25"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/factorial"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Faktoriál slúži na vyjadrenie faktoriálu daného čísla  \nNapríklad 5! = 5 x 4 x 3 x 2 x 1"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <Button
+            android:text="Dec"
+            android:textSize="25dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Dec slúži pre reprezentáciu desiatkovej číselnej sústavy. Obsahuje funkcie pre vyjadrenia  binárnej aj šestnástkovej číselnej sústavy"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/generate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Generátor slúži na vygenerovanie náhodného čísla  \nPri dlhšom kliknutí môžete prenastaviť rozsah generátoru"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="5"
+        android:layout_height="60dp">
+
+        <ImageButton
+            android:src="@drawable/delete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@color/classicButtons"
+            android:layout_marginRight="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:fontFamily="sans-serif"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:elevation="50dp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:text="Tlačítko Vymaž slúži na vymazanie posledného zadaného znaku"
+            android:gravity="center|left"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include layout="@layout/task_line"></include>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+</LinearLayout>
+
+</ScrollView>

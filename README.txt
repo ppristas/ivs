@@ -13,6 +13,7 @@ pri OS Ubuntu, Windows a macOS je potrebné mať nainštalované
 Android Studio. Na platforme Android si môžete program jednoducho
 stiahnuť na Google Play.
 Odkaz:
+https://play.google.com/store/apps/details?id=com.calc.enterprise.kalkulaka
 
 Autori
 ------

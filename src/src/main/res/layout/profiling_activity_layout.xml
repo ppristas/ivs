@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_height="50dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonDemo1"
+            android:onClick="showDemo"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Ukážka 1"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonDemo2"
+            android:onClick="showDemo"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Ukážka 2"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonDemo3"
+            android:onClick="showDemo"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Ukážka 3"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/editTextProfiling"
+        android:layout_marginLeft="10dp"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_marginRight="10dp"
+        android:hint="1.0,2.3,5,7.9"
+        />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_height="50dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:onClick="showDemo"
+            android:id="@+id/buttonProfiling"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Výpočet"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="0dp"
+            android:onClick="deleteEditText"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginRight="10dp"
+            android:text="Vymazať"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>
